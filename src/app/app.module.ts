@@ -11,6 +11,19 @@ import { TabsPage } from '../pages/tabs/tabs';
 // import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyCAbeiF9d0Mgn6SAnnD0D2DwGSTWuYswCg",
+  authDomain: "noiterecifense.firebaseapp.com",
+  databaseURL: "https://noiterecifense.firebaseio.com",
+  projectId: "project-6474842309359176776",
+  storageBucket: "project-6474842309359176776.appspot.com",
+  messagingSenderId: "681822354983"
+};
+
 @NgModule({
   declarations: [
     MyApp,
@@ -21,7 +34,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
