@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -14,6 +15,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { Api } from '../providers/api/api';
+import { PaginasProvider } from '../providers/paginas/paginas';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCAbeiF9d0Mgn6SAnnD0D2DwGSTWuYswCg",
@@ -34,6 +37,7 @@ export const firebaseConfig = {
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
@@ -50,7 +54,9 @@ export const firebaseConfig = {
   providers: [
     /*StatusBar,*/
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Api,
+    PaginasProvider
   ]
 })
 export class AppModule {}

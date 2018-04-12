@@ -7,41 +7,39 @@
 </ion-header>
 
 <ion-content>
-<ion-card>
+  <ion-card *ngFor="let item of perfilPaginas">
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="{{ item.picture.data.url }}">
+      </ion-avatar>
+      <h2>{{ item.name }}</h2>
+      <p>@{{ item.username }}</p>
+    </ion-item>
 
-  <ion-item>
-    <ion-avatar item-start>
-      <img src="assets/imgs/logo.png">
-    </ion-avatar>
-    <h2>Marty McFly</h2>
-    <p>November 5, 1955</p>
-  </ion-item>
+    <img *ngIf="item.cover" src="{{ item.cover.source }}">
 
-  <img src="assets/imgs/logo.png">
-
-  <ion-card-content>
-    <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
-  </ion-card-content>
-
-  <ion-row>
-    <ion-col>
-      <button ion-button icon-left clear small>
-        <ion-icon name="thumbs-up"></ion-icon>
-        <div>12 Likes</div>
+    <ion-card-content>
+      <p>{{ item.about }}</p>
+      <p>{{ item.description }}</p>
+    </ion-card-content>
+    <ion-list>
+      <button ion-item *ngIf="item.website">
+        <ion-icon name="browsers" item-start></ion-icon>
+        {{ item.website }}
       </button>
-    </ion-col>
-    <ion-col>
-      <button ion-button icon-left clear small>
-        <ion-icon name="text"></ion-icon>
-        <div>4 Comments</div>
+      <button ion-item *ngIf="item.location">
+        <ion-icon name="pin" item-start></ion-icon>
+        {{ item.location.street }} {{ item.location.city }}
       </button>
-    </ion-col>
-    <ion-col center text-center>
-      <ion-note>
-        11h ago
-      </ion-note>
-    </ion-col>
-  </ion-row>
+      <button ion-item *ngIf="item.phone">
+        <ion-icon name="call" item-start></ion-icon>
+        {{ item.phone }}
+      </button>
+      <button ion-item>
+        <ion-icon name="thumbs-up" item-start></ion-icon>
+        {{ item.fan_count | number }} Seguidores
+      </button>
+    </ion-list>
 
-</ion-card>
+  </ion-card>
 </ion-content>
