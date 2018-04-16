@@ -7,13 +7,13 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let item of perfilPaginas">
+  <ion-card *ngFor="let item of baladas">
     <ion-item>
       <ion-avatar item-start>
         <img src="{{ item.picture.data.url }}">
       </ion-avatar>
       <h2>{{ item.name }}</h2>
-      <p>@{{ item.username }}</p>
+      <p>{{ item.category }}</p>
     </ion-item>
 
     <img *ngIf="item.cover" src="{{ item.cover.source }}">

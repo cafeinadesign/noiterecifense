@@ -24,7 +24,7 @@ export class HomePage {
       }
       this.displayName = user.displayName;      
     });
-    this.items = afDB.list('paginas').valueChanges();
+    this.items = afDB.list('paginasFacebook').valueChanges();
   }
 
   signInWithFacebook() {

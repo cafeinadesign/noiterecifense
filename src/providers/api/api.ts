@@ -7,6 +7,8 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class Api {
   url: string = 'https://graph.facebook.com/v2.12';
+  //token: string = '&access_token=232599437121434|RGPVVCGWuGiicYSnQi6lzTOaNqw';
+  token: string = '&locale=pt_BR&access_token=EAACEdEose0cBAKsJGeZBnXjrU4kQR1jTTUoX4VLGlju74PMQlfiSSrHEvXDa0iUxDlUJA6dZBPjOt46OjS0cHO9zLz1W2qdzwyvcFi2ho3q6YWA9C6BOeZBDW7O3yg4kkeZBZCoaoaLxkpL3bM3qPlZAxXUMRWhMsoWE9Prxvh2aRk7MkkvfqafvNw7tdSaMYZD';
 
   constructor(public http: HttpClient) {
   }
@@ -26,7 +28,7 @@ export class Api {
       }
     }
 
-    return this.http.get(this.url + '/' + endpoint, reqOpts);
+    return this.http.get(this.url + '/' + endpoint + this.token, reqOpts);
   }
 
   post(endpoint: string, body: any, reqOpts?: any) {

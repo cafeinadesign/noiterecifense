@@ -10,7 +10,7 @@
   <button ion-button outline (click)="signOut()">Logout</button>
 <ion-list>
   <ion-item class="text" *ngFor="let item of items | async">
-    {{item | json}}
+    {{ item }}
   </ion-item>
 </ion-list>
 </ion-content>
